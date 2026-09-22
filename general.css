@@ -1,0 +1,98 @@
+/**************************CSS Reset**************************/
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  interpolate-size: allow-keywords;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2 {
+  line-height: 1.25;
+}
+
+p,
+li {
+  text-wrap: pretty;
+}
+
+img,
+svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+label {
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  font-size: max(1em, 16px);
+}
+
+textarea {
+  resize: none;
+  min-height: 4lh;
+}
+
+legend {
+  padding: 0;
+}
+
+select,
+::picker(select) {
+  appearance: base-select;
+}
+/**************************/
+main {
+  max-width: 1200px;
+}
+/*************************** HEADER *************************/
+header {
+  background-color: #1e1e1e;
+  color: #f2f2f2;
+  a {
+    color: #f2f2f2;
+    text-decoration: none;
+  }
+  ul {
+    display: flex;
+    gap: 3rem;
+  }
+  li {
+    list-style: none;
+  }
+}
+.header-content {
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+/******************************************************/
+/* Index */
+.kategori-list-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  color: #f2f2f2;
+  gap: 1rem;
+  * {
+    background-color: #1e1e1e;
+    padding: 2rem;
+  }
+}
