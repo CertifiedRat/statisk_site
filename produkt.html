@@ -1,17 +1,58 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="da">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="general.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="general.css" />
     <title>Produkter</title>
-</head>
+  </head>
 
-<body>
-    <header></header>
-    <main></main>
-    <footer></footer>
-</body>
+  <body>
+    <header>
+      <nav class="header-content">
+        <div class="logo">
+          <a href="index.html"> <img src="imgs/logo.png" alt="placeholder logo" /></a>
+        </div>
+        <button class="menuikon" aria-label="open mobile menu">
+          <span class="topline"></span>
+          <span class="middleline"></span>
+          <span class="bottomline"></span>
+        </button>
+        <ul class="menu">
+          <li><a href="produktliste.html">Produkter</a></li>
+          <li><a href="produktliste.html">Sæsoner</a></li>
+        </ul>
+      </nav>
+    </header>
 
+    <main>
+      <section class="section-container">
+        <div class="breadcrumbs">
+          <a href="/">Home ></a>
+          <a href="produktliste.html">New Arrivals ></a>
+          <a href="produktliste.html">Window Cats ></a>
+          <p class="current">Big Chonk</p>
+        </div>
+        <div class="grid">
+          <img src="imgs/cookoo.JPG" alt="placeholder" />
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <nav class="footer-content">
+        <div class="logo">
+          <a href="index.html"> <img src="imgs/logo.png" alt="placeholder logo" /></a>
+        </div>
+        <ul>
+          <li>
+            <p><strong>Vores sider</strong></p>
+          </li>
+          <li><a href="produktliste.html">Produkter</a></li>
+          <li><a href="produktliste.html">Sæsoner</a></li>
+        </ul>
+      </nav>
+    </footer>
+    <script src="menu.js"></script>
+  </body>
 </html>
