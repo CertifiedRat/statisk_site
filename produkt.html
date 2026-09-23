@@ -26,15 +26,48 @@
     </header>
 
     <main>
-      <section class="section-container">
+      <section class="section-container no-gap">
         <div class="breadcrumbs">
-          <a href="/">Home ></a>
-          <a href="produktliste.html">New Arrivals ></a>
-          <a href="produktliste.html">Window Cats ></a>
-          <p class="current">Big Chonk</p>
+          <a href="/">Home &nbsp;&#8250;&nbsp;&nbsp;</a>
+          <a href="produktliste.html"> New Arrivals &nbsp;&#8250;&nbsp;&nbsp;</a>
+          <a href="produktliste.html"> Window Cats &nbsp;&#8250;&nbsp;&nbsp;</a>
+          <p class="current">Chonk</p>
         </div>
-        <div class="grid">
-          <img src="imgs/cookoo.JPG" alt="placeholder" />
+
+        <div class="product-container">
+          <div class="product-imgs discount">
+            <div class="product-imgs-options">
+              <img src="imgs/cookoo.JPG" alt="placeholder" />
+              <img src="imgs/chonk.JPG" alt="placeholder" />
+              <img src="imgs/kawaii.JPG" alt="placeholder" />
+              <img src="imgs/eepy.JPG" alt="placeholder" />
+            </div>
+            <img src="imgs/cookoo.JPG" alt="placeholder" />
+            <p class="discount-tag">37,24%</p>
+          </div>
+
+          <div class="product-info soldout discount">
+            <h2>Product Name</h2>
+            <p>Short description of the product</p>
+            <div class="color-options">
+              <p><strong>Color:</strong> Black & White</p>
+              <a href="produkt.html"> <img src="imgs/chonk.JPG" alt="placeholder" /></a>
+              <a href="produkt.html"> <img src="imgs/eepy.JPG" alt="placeholder" /></a>
+              <a href="produkt.html"> <img src="imgs/kawaii.JPG" alt="placeholder" /></a>
+            </div>
+            <div class="prices">
+              <p class="price">2,39 kr</p>
+              <p class="new-price"><strong>1,50 kr</strong></p>
+            </div>
+            <label for="sizes"><strong>Size:</strong></label>
+            <select name="sizes" id="sizes">
+              <option value="choose">Choose a size</option>
+              <option value="small">Itty bitty</option>
+              <option value="medium">Surprisingly average</option>
+              <option value="large">Humongous</option>
+            </select>
+            <a href="produkt.html" class="add-to-basket">Add to basket</a>
+          </div>
         </div>
       </section>
     </main>
@@ -54,5 +87,6 @@
       </nav>
     </footer>
     <script src="menu.js"></script>
+    <script src="slider.js"></script>
   </body>
 </html>
