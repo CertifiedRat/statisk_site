@@ -175,7 +175,7 @@ nav.menuopen .menu {
 }
 /********************** FORSIDE ********************************/
 .hero-picture {
-  background: url(/imgs/9.webp) no-repeat;
+  background: url("imgs/heroimg.webp") no-repeat;
   background-position: center;
   background-size: cover;
   color: var(--color-white50);
