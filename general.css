@@ -246,11 +246,13 @@ p.hero-p {
   position: relative;
   grid-template-rows: subgrid;
   grid-row: span 5;
+  height: 100%;
 }
 .prices {
   display: flex;
   gap: 0.5rem;
   padding-block: 0.25rem 0.5rem;
+  font-weight: 600;
 }
 .discount {
   position: relative;
@@ -266,9 +268,11 @@ p.hero-p {
   .new-price {
     display: block;
     color: rgb(216, 0, 0);
+    font-weight: 600;
   }
   .price {
     text-decoration: line-through;
+    font-weight: 400;
   }
 }
 .soldout-tag {
