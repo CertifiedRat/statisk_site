@@ -12,6 +12,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
     <link rel="manifest" href="favicon/site.webmanifest" />
     <script src="menu.js" defer></script>
+    <script src="detailview.js" defer></script>
     <title>Produkter</title>
   </head>
 
@@ -43,38 +44,41 @@
         </div>
 
         <div class="product-container">
-          <div class="product-imgs discount">
+          <div class="product-imgs">
             <div class="product-imgs-options">
-              <img src="imgs/cookoo.webp" alt="placeholder" />
-              <img src="imgs/chonk.webp" alt="placeholder" />
-              <img src="imgs/kawaii.webp" alt="placeholder" />
-              <img src="imgs/eepy.webp" alt="placeholder" />
+              <a class="img-product" href="#"> <img src="" alt="placeholder" /></a>
+              <a class="img-product" href="#"> <img src="" alt="placeholder" /></a>
+              <a class="img-product" href="#"> <img src="" alt="placeholder" /></a>
+              <a class="img-product" href="#"> <img src="" alt="placeholder" /></a>
             </div>
-            <img src="imgs/cookoo.webp" alt="placeholder" />
-            <p class="discount-tag">37,24%</p>
+            <a class="img-product" href="#"> <img src="" alt="placeholder" /></a>
+            <p class="discount-tag"></p>
+            <p class="soldout-tag"></p>
           </div>
 
-          <div class="product-info soldout discount">
-            <h2>Product Name</h2>
-            <p>Short description of the product</p>
+          <div class="product-info">
+            <h2 class="titlename">Product Name</h2>
+            <p class="brand-type">Brand & type</p>
+            <p class="short-description"></p>
             <div class="color-options">
-              <p><strong>Color:</strong> Black & White</p>
-              <a href="produkt.html"> <img src="imgs/chonk.webp" alt="placeholder" /></a>
-              <a href="produkt.html"> <img src="imgs/eepy.webp" alt="placeholder" /></a>
-              <a href="produkt.html"> <img src="imgs/kawaii.webp" alt="placeholder" /></a>
+              <p class="color"><strong>Color:</strong> Black & White</p>
+              <a class="img-product" href="#"> <img src="" alt="placeholder" /></a>
+              <a class="img-product" href="#"> <img src="" alt="placeholder" /></a>
+              <a class="img-product" href="#"> <img src="" alt="placeholder" /></a>
             </div>
             <div class="prices">
               <p class="price">2,39 kr</p>
               <p class="new-price"><strong>1,50 kr</strong></p>
             </div>
+            <p class="description">Description of the product</p>
             <label for="sizes"><strong>Size:</strong></label>
             <select name="sizes" id="sizes">
               <option value="choose">Choose a size</option>
-              <option value="small">Itty bitty</option>
+              <option value="small">Teeny Tiny</option>
               <option value="medium">Surprisingly average</option>
               <option value="large">Humongous</option>
             </select>
-            <a href="produkt.html" class="add-to-basket">Add to basket</a>
+            <a href="#" class="add-to-basket">Add to basket</a>
           </div>
         </div>
       </section>
