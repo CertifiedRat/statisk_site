@@ -287,6 +287,12 @@ p.hero-p {
 .product-img {
   position: relative;
 }
+.product-imgs {
+  position: relative;
+  .soldout-tag {
+    left: 88px;
+  }
+}
 .soldout .soldout-tag {
   display: block;
   position: absolute;

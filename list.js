@@ -1,4 +1,8 @@
-const productUrl = "https://kea-alt-del.dk/t7/api/products";
+const param = new URLSearchParams(window.location.search);
+const selectedSeason = param.get("season");
+console.log("selectedSeason", selectedSeason);
+
+const productUrl = `https://kea-alt-del.dk/t7/api/products?season=${selectedSeason}`;
 const listContainer = document.querySelector(".product-list-container");
 
 function getData() {
@@ -27,13 +31,13 @@ function showData(products) {
     };
     //Indsættes som ${calculateDiscount(product.price, product.discount)} i det tag ens nye pris skal stå.
 
-    newInnerHTML += `<a class="product ${product.soldout ? "soldout" : ""} ${hasDiscount}" href="produkt.html">
+    newInnerHTML += `<a class="product ${product.soldout ? "soldout" : ""} ${hasDiscount}" href="produkt.html?id=${product.id}">
           <div class="product-img">
             <img src="https://kea-alt-del.dk/t7/images/webp/640/${product.id}.webp" alt="${product.productdisplayname}" />
             <p class="soldout-tag">Sold Out</p>
           </div>
-          <p><strong>${product.brandname} - ${product.articletype}</strong></p>
-          <p>${product.productdisplayname}</p>
+          <p><strong>${product.productdisplayname}</strong></p>
+          <p>${product.brandname} - ${product.articletype}</p>
           <div class="prices">
             <p class="price">${product.price} kr</p>
             <p class="new-price">${calculateDiscount(product.price, product.discount)}</p>

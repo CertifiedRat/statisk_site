@@ -31,7 +31,7 @@ function showDataSeasons(data) {
   seasons.innerHTML = "";
   let seaInnerHTML = "";
   data.forEach((element) => {
-    seaInnerHTML += `<a class="display" href="produktliste.html">${element.season}</a>`;
+    seaInnerHTML += `<a class="display" href="produktliste.html?season=${element.season}">${element.season}</a>`;
   });
   seasons.innerHTML = seaInnerHTML;
 }
