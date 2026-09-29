@@ -402,6 +402,15 @@ a.add-to-basket {
 a.add-to-basket:hover {
   background-color: var(--color-black900);
 }
+
+.desAcc {
+  padding: 0.5rem 0.75rem;
+  background-color: #e3e3e3;
+  align-self: center;
+  ::marker {
+    content: "";
+  }
+}
 /******************** FOOTER *******************************/
 footer {
   background-color: var(--color-black900);
