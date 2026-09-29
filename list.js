@@ -1,12 +1,22 @@
 const param = new URLSearchParams(window.location.search);
 const selectedSeason = param.get("season");
+const selectedCategory = param.get("category");
 console.log("selectedSeason", selectedSeason);
+console.log("selectedCategory", selectedCategory);
 
-const productUrl = `https://kea-alt-del.dk/t7/api/products?season=${selectedSeason}`;
+let currentUrl = "";
+if (selectedSeason) {
+  currentUrl = `https://kea-alt-del.dk/t7/api/products?season=${selectedSeason}`;
+} else if (selectedCategory) {
+  currentUrl = `https://kea-alt-del.dk/t7/api/products?category=${selectedCategory}`;
+} else {
+  currentUrl = `https://kea-alt-del.dk/t7/api/products`;
+}
+
 const listContainer = document.querySelector(".product-list-container");
 
 function getData() {
-  fetch(productUrl).then((result) => result.json().then((data) => showData(data)));
+  fetch(currentUrl).then((result) => result.json().then((data) => showData(data)));
 }
 
 function showData(products) {
