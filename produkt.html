@@ -1,102 +1,104 @@
 <!doctype html>
 <html lang="da">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="general.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap" rel="stylesheet" />
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
-    <link rel="manifest" href="favicon/site.webmanifest" />
-    <script src="menu.js" defer></script>
-    <script src="detailview.js" defer></script>
-    <title>Produkter</title>
-  </head>
 
-  <body>
-    <header>
-      <nav class="header-content">
-        <div class="logo">
-          <a href="index.html"> <img src="imgs/logo.webp" alt="placeholder logo" /></a>
-        </div>
-        <button class="menuikon" aria-label="open mobile menu">
-          <span class="topline"></span>
-          <span class="middleline"></span>
-          <span class="bottomline"></span>
-        </button>
-        <ul class="menu">
-          <li><a href="produktliste.html">Produkter</a></li>
-          <li><a href="produktliste.html">Sæsoner</a></li>
-        </ul>
-      </nav>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="general.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap" rel="stylesheet" />
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
+  <link rel="manifest" href="favicon/site.webmanifest" />
+  <script src="menu.js" defer></script>
+  <script src="detailview.js" defer></script>
+  <title>Produkter</title>
+</head>
 
-    <main>
-      <section class="section-container no-gap">
-        <div class="breadcrumbs">
-          <a href="/">Home &nbsp;&#8250;&nbsp;&nbsp;</a>
-          <a href="produktliste.html"> New Arrivals &nbsp;&#8250;&nbsp;&nbsp;</a>
-          <a href="produktliste.html"> Window Cats &nbsp;&#8250;&nbsp;&nbsp;</a>
-          <p class="current">Chonk</p>
-        </div>
+<body>
+  <header>
+    <nav class="header-content">
+      <div class="logo">
+        <a href="index.html"> <img src="imgs/logo.webp" alt="placeholder logo" /></a>
+      </div>
+      <button class="menuikon" aria-label="open mobile menu">
+        <span class="topline"></span>
+        <span class="middleline"></span>
+        <span class="bottomline"></span>
+      </button>
+      <ul class="menu">
+        <li><a href="produktliste.html">Produkter</a></li>
+        <li><a href="produktliste.html">Sæsoner</a></li>
+      </ul>
+    </nav>
+  </header>
 
-        <div class="product-container">
-          <div class="product-imgs">
-            <div class="product-imgs-options">
-              <a class="img-product" href="#"> <img src="" alt="placeholder" /></a>
-              <a class="img-product" href="#"> <img src="" alt="placeholder" /></a>
-              <a class="img-product" href="#"> <img src="" alt="placeholder" /></a>
-              <a class="img-product" href="#"> <img src="" alt="placeholder" /></a>
-            </div>
+  <main>
+    <section class="section-container no-gap">
+      <div class="breadcrumbs">
+        <a href="/">Home &nbsp;&#8250;&nbsp;&nbsp;</a>
+        <a href="produktliste.html"> New Arrivals &nbsp;&#8250;&nbsp;&nbsp;</a>
+        <a href="produktliste.html"> Window Cats &nbsp;&#8250;&nbsp;&nbsp;</a>
+        <p class="current">Chonk</p>
+      </div>
+
+      <div class="product-container">
+        <div class="product-imgs">
+          <div class="product-imgs-options">
             <a class="img-product" href="#"> <img src="" alt="placeholder" /></a>
-            <p class="discount-tag"></p>
-            <p class="soldout-tag"></p>
+            <a class="img-product" href="#"> <img src="" alt="placeholder" /></a>
+            <a class="img-product" href="#"> <img src="" alt="placeholder" /></a>
+            <a class="img-product" href="#"> <img src="" alt="placeholder" /></a>
           </div>
+          <div class="img-product" href="#"> <img src="" alt="placeholder" /></div>
+          <p class="discount-tag"></p>
+          <p class="soldout-tag"></p>
+        </div>
 
-          <div class="product-info">
-            <h2 class="titlename">Product Name</h2>
-            <p class="brand-type">Brand & type</p>
-            <p class="short-description"></p>
-            <div class="color-options">
-              <p class="color"><strong>Color:</strong> Black & White</p>
-              <a class="img-product" href="#"> <img src="" alt="placeholder" /></a>
-              <a class="img-product" href="#"> <img src="" alt="placeholder" /></a>
-              <a class="img-product" href="#"> <img src="" alt="placeholder" /></a>
-            </div>
-            <div class="prices">
-              <p class="price">2,39 kr</p>
-              <p class="new-price"><strong>1,50 kr</strong></p>
-            </div>
-            <p class="description">Description of the product</p>
-            <label for="sizes"><strong>Size:</strong></label>
-            <select name="sizes" id="sizes">
-              <option value="choose">Choose a size</option>
-              <option value="small">Teeny Tiny</option>
-              <option value="medium">Surprisingly average</option>
-              <option value="large">Humongous</option>
-            </select>
-            <a href="#" class="add-to-basket">Add to basket</a>
+        <div class="product-info">
+          <h2 class="titlename">Product Name</h2>
+          <p class="brand-type">Brand & type</p>
+          <p class="short-description"></p>
+          <div class="color-options">
+            <p class="color"><strong>Color:</strong> Black & White</p>
+            <a class="img-product" href="#"> <img src="" alt="placeholder" /></a>
+            <a class="img-product" href="#"> <img src="" alt="placeholder" /></a>
+            <a class="img-product" href="#"> <img src="" alt="placeholder" /></a>
           </div>
+          <div class="prices">
+            <p class="price">2,39 kr</p>
+            <p class="new-price"><strong>1,50 kr</strong></p>
+          </div>
+          <p class="description">Description of the product</p>
+          <label for="sizes"><strong>Size:</strong></label>
+          <select name="sizes" id="sizes">
+            <option value="choose">Choose a size</option>
+            <option value="small">Teeny Tiny</option>
+            <option value="medium">Surprisingly average</option>
+            <option value="large">Humongous</option>
+          </select>
+          <a href="#" class="add-to-basket">Add to basket</a>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
+  </main>
 
-    <footer>
-      <nav class="footer-content">
-        <div class="logo">
-          <a href="index.html"> <img src="imgs/logo.webp" alt="placeholder logo" /></a>
-        </div>
-        <ul>
-          <li>
-            <p><strong>Vores sider</strong></p>
-          </li>
-          <li><a href="produktliste.html">Produkter</a></li>
-          <li><a href="produktliste.html">Sæsoner</a></li>
-        </ul>
-      </nav>
-    </footer>
-  </body>
+  <footer>
+    <nav class="footer-content">
+      <div class="logo">
+        <a href="index.html"> <img src="imgs/logo.webp" alt="placeholder logo" /></a>
+      </div>
+      <ul>
+        <li>
+          <p><strong>Vores sider</strong></p>
+        </li>
+        <li><a href="produktliste.html">Produkter</a></li>
+        <li><a href="produktliste.html">Sæsoner</a></li>
+      </ul>
+    </nav>
+  </footer>
+</body>
+
 </html>
