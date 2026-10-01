@@ -307,6 +307,27 @@ p.hero-p {
 .soldout img {
   filter: brightness(50%);
 }
+
+.filter-and-sort {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+.filter-and-sort summary {
+  border: 1px solid var(--color-black900);
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+  width: fit-content;
+  cursor: pointer;
+}
+summary::marker {
+  content: "\23F7";
+  /* \23F7 */
+  rotate: 90deg;
+}
+
+.filters {
+  display: flex;
+}
 /******************** PRODUKT *******************************/
 .no-gap {
   gap: 0;

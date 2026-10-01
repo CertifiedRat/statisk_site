@@ -1,47 +1,78 @@
 const param = new URLSearchParams(window.location.search);
 const selectedSeason = param.get("season");
 const selectedCategory = param.get("category");
-console.log("selectedSeason", selectedSeason);
-console.log("selectedCategory", selectedCategory);
+const listContainer = document.querySelector(".product-list-container");
+const header = document.querySelector(".intro-txt");
+let allData;
 
+//URL PARAMETRE
 let currentUrl = "";
+let headertitle;
 if (selectedSeason) {
   currentUrl = `https://kea-alt-del.dk/t7/api/products?season=${selectedSeason}`;
+  headertitle = selectedSeason + " Products";
 } else if (selectedCategory) {
   currentUrl = `https://kea-alt-del.dk/t7/api/products?category=${selectedCategory}`;
+  headertitle = selectedCategory;
 } else {
   currentUrl = `https://kea-alt-del.dk/t7/api/products`;
+  headertitle = "All Products";
+}
+//FILTERS
+document.querySelectorAll(".genders button").forEach((btn) => {
+  btn.addEventListener("click", genders);
+});
+function genders(evt) {
+  const gender = allData.filter((product) => product.gender === evt.target.dataset.filter);
+  showData(gender);
+  if (evt.target.dataset.filter === "All") {
+    showData(allData);
+    return;
+  }
+}
+document.querySelectorAll(".types button").forEach((btn) => {
+  btn.addEventListener("click", types);
+});
+function types(evt) {
+  const type = allData.filter((product) => product.usagetype === evt.target.dataset.filter);
+  showData(type);
+  if (evt.target.dataset.filter === "All") {
+    showData(allData);
+    return;
+  }
+}
+document.querySelector(".sale").addEventListener("click", showDiscount);
+function showDiscount() {
+  const discount = allData.filter((product) => product.discount > 0);
+  showData(discount);
 }
 
-const listContainer = document.querySelector(".product-list-container");
-
+//HENT DATA
 function getData() {
-  fetch(currentUrl).then((result) => result.json().then((data) => showData(data)));
+  fetch(currentUrl).then((result) =>
+    result.json().then((data) => {
+      showData(data);
+      allData = data;
+    }),
+  );
 }
 
+//VISNING AF DATA
 function showData(products) {
   console.log(products);
   listContainer.innerHTML = "";
   let newInnerHTML = "";
 
   products.forEach((product) => {
-    //Discount kode
-    let hasDiscount = "";
-    if (product.discount) {
-      hasDiscount = "discount";
-    }
-    // Hvis produktet har discount (mere end 0 i værdi), så giv variablen værdien discount, som kan sættes ind som class i produktcontaineren
-    //Kunne også blot indsætte ${product.discount ? "discount" : ""} som class, men forstår den anden metode bedre
-    //${product.discount ? "discount" : ""}
-    // ${functionNavn ?(Hvis den er sand/værdi mere end 0(truthy)) "hvad der skal ske" :(hvis den ikke er sand(falsy)) "(nothing)"}
-
     //Udregning af ny pris, som vist i undervisningen;
     const calculateDiscount = (price, discountPercent) => {
       return (price * (100 - discountPercent)) / 100;
     };
     //Indsættes som ${calculateDiscount(product.price, product.discount)} i det tag ens nye pris skal stå.
 
-    newInnerHTML += `<a class="product ${product.soldout ? "soldout" : ""} ${hasDiscount}" href="produkt.html?id=${product.id}">
+    document.querySelector(".productheader").innerHTML = "Browse: <br>" + headertitle;
+
+    newInnerHTML += `<a class="product ${product.soldout ? "soldout" : ""} ${product.discount ? "discount" : ""}" href="produkt.html?id=${product.id}">
           <div class="product-img">
             <img src="https://kea-alt-del.dk/t7/images/webp/640/${product.id}.webp" alt="${product.productdisplayname}" />
             <p class="soldout-tag">Sold Out</p>
@@ -59,3 +90,15 @@ function showData(products) {
 }
 
 getData();
+
+//Notes to self;
+
+//Discount kode
+// let hasDiscount = "";
+// if (product.discount) {
+//   hasDiscount = "discount";
+// }
+// Hvis produktet har discount (mere end 0 i værdi), så giv variablen værdien discount, som kan sættes ind som class i produktcontaineren
+//ELLER: ${product.discount ? "discount" : ""}
+//
+// ${functionNavn ?(Hvis den er sand/værdi mere end 0(truthy)) "hvad der skal ske" :(hvis den ikke er sand(falsy)) "(nothing)"}
