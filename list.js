@@ -5,21 +5,21 @@ const listContainer = document.querySelector(".product-list-container");
 const header = document.querySelector(".intro-txt");
 let allData;
 
-//URL PARAMETRE
+//URL PARAMETRE-------------------------------------------------------------------------------------------------------
 let currentUrl = "";
 let headertitle;
 if (selectedSeason) {
-  currentUrl = `https://kea-alt-del.dk/t7/api/products?season=${selectedSeason}`;
+  currentUrl = `https://kea-alt-del.dk/t7/api/products?season=${selectedSeason}&limit=50`;
   headertitle = selectedSeason + " Products";
 } else if (selectedCategory) {
-  currentUrl = `https://kea-alt-del.dk/t7/api/products?category=${selectedCategory}`;
+  currentUrl = `https://kea-alt-del.dk/t7/api/products?category=${selectedCategory}&limit=50`;
   headertitle = selectedCategory;
 } else {
-  currentUrl = `https://kea-alt-del.dk/t7/api/products`;
+  currentUrl = `https://kea-alt-del.dk/t7/api/products?limit=50`;
   headertitle = "All Products";
 }
 
-//FILTERS
+//FILTERS---------------------------------------------------------------------------------------------------------------
 document.querySelectorAll(".genders option").forEach((btn) => {
   btn.addEventListener("click", genders);
 });
@@ -42,14 +42,23 @@ function types(evt) {
     return;
   }
 }
-document.querySelector(".sale").addEventListener("click", showDiscount);
-function showDiscount() {
-  const discount = allData.filter((product) => product.discount > 0);
-  showData(discount);
-}
-const inStock = document.querySelector(".in-stock").addEventListener("click", (event) => {
-  const sortedData = allData.sort((product) => product.soldout);
-  showData(sortedData);
+let showingDiscount = false;
+document.querySelector(".sale").addEventListener("click", () => {
+  showingDiscount = !showingDiscount;
+  document.querySelector(".sale").classList.toggle("active");
+
+  const products = showingDiscount ? allData.filter((product) => product.discount > 0) : allData;
+  showData(products);
+});
+// document.querySelector(".sale").addEventListener("click", showDiscount);
+// function showDiscount() {
+//   const discount = allData.filter((product) => product.discount > 0);
+//   showData(discount);
+// }
+
+const inStock = document.querySelector(".in-stock").addEventListener("click", () => {
+  const showInStock = allData.filter((product) => product.soldout < 1);
+  showData(showInStock);
 });
 
 //HENT DATA
@@ -61,7 +70,7 @@ function getData() {
     }),
   );
 }
-//SORTING
+//SORTING---------------------------------------------------------------------------------------------------------------
 const sortAlphabetical = document.querySelector(".alphabetical");
 sortAlphabetical.addEventListener("click", () => {
   const sortedData = [...allData].sort((a, b) => a.productdisplayname.localeCompare(b.productdisplayname));
@@ -69,7 +78,7 @@ sortAlphabetical.addEventListener("click", () => {
 });
 const sortLowHigh = document.querySelector(".low-high");
 sortLowHigh.addEventListener("click", (event) => {
-  const sortedData = allData.sort((a, b) => {
+  const sortedData = [...allData].sort((a, b) => {
     const actualPriceA = a.discount ? calculateDiscount(a.price, a.discount) : a.price;
     const actualPriceB = b.discount ? calculateDiscount(b.price, b.discount) : b.price;
     return actualPriceA - actualPriceB;
@@ -78,22 +87,26 @@ sortLowHigh.addEventListener("click", (event) => {
 });
 const sortHighLow = document.querySelector(".high-low");
 sortHighLow.addEventListener("click", (event) => {
-  const sortedData = allData.sort((a, b) => {
+  const sortedData = [...allData].sort((a, b) => {
     const actualPriceA = a.discount ? calculateDiscount(a.price, a.discount) : a.price;
     const actualPriceB = b.discount ? calculateDiscount(b.price, b.discount) : b.price;
     return actualPriceB - actualPriceA;
   });
   showData(sortedData);
 });
+const noSort = document.querySelector(".default").addEventListener("click", () => {
+  showData(allData);
+  return;
+});
 
-//PRIS "LOMMEREGNER"
+//PRIS "LOMMEREGNER"----------------------------------------------------------------------------------------------------
 //Udregning af ny pris, som vist i undervisningen;
 const calculateDiscount = (price, discountPercent) => {
   return (price * (100 - discountPercent)) / 100;
 };
 //Indsættes som ${calculateDiscount(product.price, product.discount)} i det tag ens nye pris skal stå.
 
-//VISNING AF DATA
+//VISNING AF DATA--------------------------------------------------------------------------------------------------------
 function showData(products) {
   console.log(products);
   listContainer.innerHTML = "";
@@ -132,3 +145,6 @@ getData();
 //ELLER: ${product.discount ? "discount" : ""}
 //
 // ${functionNavn ?(Hvis den er sand/værdi mere end 0(truthy)) "hvad der skal ske" :(hvis den ikke er sand(falsy)) "(nothing)"}
+
+//Sorting
+//Hvis man sætter [...] rundt om ens arraynavn, sorterer man en kopi af det i stedet for at direkte påvirke rækkefølgen af det originale array.
