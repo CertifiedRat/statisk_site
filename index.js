@@ -14,7 +14,7 @@ function showData(data) {
   categories.innerHTML = "";
   let catInnerHTML = "";
   data.forEach((element) => {
-    catInnerHTML += `<a class="display" href="produktliste.html">${element.category}</a>`;
+    catInnerHTML += `<a class="display" href="produktliste.html?category=${element.category}">${element.category}</a>`;
   });
   categories.innerHTML = catInnerHTML;
 }

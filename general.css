@@ -1,6 +1,7 @@
 :root {
   --color-black900: #1e1e1e;
   --color-black800: #313131;
+  --color-black700: #444444;
   --color-white50: #f2f2f2;
 }
 /**************************CSS Reset**************************/
@@ -170,7 +171,7 @@ nav.menuopen .menu {
     gap: 2rem;
   }
   .section-container .autofit {
-    grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 }
 /********************** FORSIDE ********************************/
@@ -229,7 +230,7 @@ p.hero-p {
 }
 .product-list-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
   grid-template-rows: auto auto 1fr auto 1fr;
   gap: 0.5rem;
   padding-inline: 1rem;
@@ -239,6 +240,11 @@ p.hero-p {
   a {
     display: block;
     color: var(--color-black900);
+  }
+}
+@media (min-width: 520px) {
+  .product-list-container {
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   }
 }
 .product {
@@ -306,6 +312,71 @@ p.hero-p {
 }
 .soldout img {
   filter: brightness(50%);
+}
+
+.filter-and-sort {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, auto));
+  gap: 0.5rem;
+  padding-inline: 1rem;
+  padding-bottom: 1rem;
+}
+.filter-and-sort select,
+.sale {
+  display: flex;
+  gap: 1rem;
+  border: 1px solid var(--color-black900);
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+  height: fit-content;
+  cursor: pointer;
+}
+.filters select {
+  width: 110px;
+}
+.filter-and-sort select:open .name {
+  display: none;
+}
+.filter-and-sort ::picker(select) {
+  padding-block: 0.5rem;
+  width: 200px;
+}
+.filter-and-sort :checked {
+  background-color: var(--color-black800);
+  color: var(--color-white50);
+}
+.filter-and-sort ::checkmark {
+  display: none;
+}
+.inline-btn {
+  border: none;
+  padding: 0.5rem 1rem;
+}
+.filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(auto, 110px));
+  gap: 0.5rem;
+  max-width: 385px;
+}
+#sorting {
+  place-self: start end;
+}
+.sale {
+  color: var(--color-white50);
+  font-weight: 500;
+  background-color: var(--color-black900);
+  width: fit-content;
+}
+.sale:hover {
+  background-color: rgb(216, 0, 0);
+  border-color: rgb(216, 0, 0);
+}
+.active {
+  background-color: var(--color-black700);
+}
+.active:hover {
+  background-color: var(--color-black900);
+  border-color: var(--color-black900);
 }
 /******************** PRODUKT *******************************/
 .no-gap {
@@ -401,6 +472,15 @@ a.add-to-basket {
 }
 a.add-to-basket:hover {
   background-color: var(--color-black900);
+}
+
+.desAcc {
+  padding: 0.5rem 0.75rem;
+  background-color: #e3e3e3;
+  align-self: center;
+  ::marker {
+    content: "";
+  }
 }
 /******************** FOOTER *******************************/
 footer {
