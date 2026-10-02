@@ -1,77 +1,78 @@
 <!doctype html>
 <html lang="da">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="general.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap" rel="stylesheet" />
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
-    <link rel="manifest" href="favicon/site.webmanifest" />
-    <script src="menu.js" defer></script>
-    <script src="list.js" defer></script>
-    <title>Produktliste</title>
-  </head>
 
-  <body>
-    <header>
-      <nav class="header-content">
-        <div class="logo">
-          <a href="index.html"> <img src="imgs/logo.webp" alt="placeholder logo" /></a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="general.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap" rel="stylesheet" />
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
+  <link rel="manifest" href="favicon/site.webmanifest" />
+  <script src="menu.js" defer></script>
+  <script src="list.js" defer></script>
+  <title>Produktliste</title>
+</head>
+
+<body>
+  <header>
+    <nav class="header-content">
+      <div class="logo">
+        <a href="index.html"> <img src="imgs/logo.webp" alt="placeholder logo" /></a>
+      </div>
+      <button class="menuikon" aria-label="open mobile menu">
+        <span class="topline"></span>
+        <span class="middleline"></span>
+        <span class="bottomline"></span>
+      </button>
+      <ul class="menu">
+        <li><a href="produktliste.html">Produkter</a></li>
+        <li><a href="index.html">Sæsoner</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section-container">
+      <article class="intro-txt">
+        <div class="breadcrumbs">
+          <a href="/">Home &nbsp;&#8250;&nbsp;&nbsp;</a>
+          <a href="produktliste.html"> Trending &nbsp;&#8250;&nbsp;&nbsp;</a>
+          <p class="current">Window Cats</p>
         </div>
-        <button class="menuikon" aria-label="open mobile menu">
-          <span class="topline"></span>
-          <span class="middleline"></span>
-          <span class="bottomline"></span>
-        </button>
-        <ul class="menu">
-          <li><a href="produktliste.html">Produkter</a></li>
-          <li><a href="index.html">Sæsoner</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <main>
-      <section class="section-container">
-        <article class="intro-txt">
-          <div class="breadcrumbs">
-            <a href="/">Home &nbsp;&#8250;&nbsp;&nbsp;</a>
-            <a href="produktliste.html"> Trending &nbsp;&#8250;&nbsp;&nbsp;</a>
-            <p class="current">Window Cats</p>
-          </div>
-          <h1 class="productheader">Trending: <br />Window Cat</h1>
-          <p>Browse our exclusive selection of premium stinky cats</p>
-        </article>
-        <section class="filter-and-sort">
-          <div class="filters">
-            <details class="genders">
-              <summary>Gender</summary>
-              <button data-filter="Women">Women</button>
-              <button data-filter="Men">Men</button>
-              <button data-filter="Unisex">Unisex</button>
-              <button data-filter="All">Show all</button>
-            </details>
-            <details class="types">
-              <summary>Type</summary>
-              <button data-filter="Sports">Sports</button>
-              <button data-filter="Casual">Casual</button>
-              <button data-filter="All">Show all</button>
-            </details>
-            <button data-filter="Discount" class="sale">Discount</button>
-          </div>
-          <details class="sorting">
-            <summary>Sort by:</summary>
-            <button data-filter="alphabetical">Alphabetical</button>
-            <button data-filter="lowest">Low to high</button>
-            <button data-filter="highest">High to low</button>
-            <button data-filter="instock">In stock</button>
-          </details>
-        </section>
-        <div class="product-list-container">
-          <!-- <a class="product" href="produkt.html">
+        <h1 class="productheader">Trending: <br />Window Cat</h1>
+        <p>Browse our exclusive selection of premium stinky cats</p>
+      </article>
+      <section class="filter-and-sort">
+        <div class="filters">
+          <select name="genders" id="genders" class="genders">
+            <option class="name" value="genders">Gender</option>
+            <option data-filter="Women" class="inline-btn" value="genders">Women</option>
+            <option data-filter="Men" class="inline-btn" value="genders">Men</option>
+            <option data-filter="Unisex" class="inline-btn" value="genders">Unisex</option>
+            <option data-filter="All" class="inline-btn" value="genders">Show All</option>
+          </select>
+          <select name="types" id="types" class="types">
+            <option class="name" value="types">Type</option>
+            <option data-filter="Sports" class="inline-btn" value="types">Sports</option>
+            <option data-filter="Casual" class="inline-btn" value="types">Casual</option>
+            <option data-filter="All" class="inline-btn" value="types">Show All</option>
+          </select>
+          <button data-filter="Discount" class="sale">Discount</button>
+        </div>
+        <select name="sorting" id="sorting" class="sorting">
+          <option class="name" value="sorting">Sort by: </option>
+          <option class="inline-btn alphabetical" value="sorting">Alphabetical</option>
+          <option class="inline-btn low-high" value="sorting">Low to high</option>
+          <option class="inline-btn high-low" value="sorting">High to low</option>
+          <option class="inline-btn in-stock" value="sorting">In stock</option>
+        </select>
+      </section>
+      <div class="product-list-container">
+        <!-- <a class="product" href="produkt.html">
             <div class="product-img">
               <img src="imgs/3.webp" alt="placeholder" />
               <p class="soldout-tag">Sold Out</p>
@@ -126,23 +127,24 @@
             </div>
             <p class="discount-tag">25%</p>
           </a> -->
-        </div>
-      </section>
-    </main>
+      </div>
+    </section>
+  </main>
 
-    <footer>
-      <nav class="footer-content">
-        <div class="logo">
-          <a href="index.html"> <img src="imgs/logo.webp" alt="placeholder logo" /></a>
-        </div>
-        <ul>
-          <li>
-            <p><strong>Vores sider</strong></p>
-          </li>
-          <li><a href="produktliste.html">Produkter</a></li>
-          <li><a href="produktliste.html">Sæsoner</a></li>
-        </ul>
-      </nav>
-    </footer>
-  </body>
+  <footer>
+    <nav class="footer-content">
+      <div class="logo">
+        <a href="index.html"> <img src="imgs/logo.webp" alt="placeholder logo" /></a>
+      </div>
+      <ul>
+        <li>
+          <p><strong>Vores sider</strong></p>
+        </li>
+        <li><a href="produktliste.html">Produkter</a></li>
+        <li><a href="produktliste.html">Sæsoner</a></li>
+      </ul>
+    </nav>
+  </footer>
+</body>
+
 </html>

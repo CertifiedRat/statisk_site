@@ -18,8 +18,9 @@ if (selectedSeason) {
   currentUrl = `https://kea-alt-del.dk/t7/api/products`;
   headertitle = "All Products";
 }
+
 //FILTERS
-document.querySelectorAll(".genders button").forEach((btn) => {
+document.querySelectorAll(".genders option").forEach((btn) => {
   btn.addEventListener("click", genders);
 });
 function genders(evt) {
@@ -30,7 +31,7 @@ function genders(evt) {
     return;
   }
 }
-document.querySelectorAll(".types button").forEach((btn) => {
+document.querySelectorAll(".types option").forEach((btn) => {
   btn.addEventListener("click", types);
 });
 function types(evt) {
@@ -46,6 +47,10 @@ function showDiscount() {
   const discount = allData.filter((product) => product.discount > 0);
   showData(discount);
 }
+const inStock = document.querySelector(".in-stock").addEventListener("click", (event) => {
+  const sortedData = allData.sort((product) => product.soldout);
+  showData(sortedData);
+});
 
 //HENT DATA
 function getData() {
@@ -56,6 +61,37 @@ function getData() {
     }),
   );
 }
+//SORTING
+const sortAlphabetical = document.querySelector(".alphabetical");
+sortAlphabetical.addEventListener("click", () => {
+  const sortedData = [...allData].sort((a, b) => a.productdisplayname.localeCompare(b.productdisplayname));
+  showData(sortedData);
+});
+const sortLowHigh = document.querySelector(".low-high");
+sortLowHigh.addEventListener("click", (event) => {
+  const sortedData = allData.sort((a, b) => {
+    const actualPriceA = a.discount ? calculateDiscount(a.price, a.discount) : a.price;
+    const actualPriceB = b.discount ? calculateDiscount(b.price, b.discount) : b.price;
+    return actualPriceA - actualPriceB;
+  });
+  showData(sortedData);
+});
+const sortHighLow = document.querySelector(".high-low");
+sortHighLow.addEventListener("click", (event) => {
+  const sortedData = allData.sort((a, b) => {
+    const actualPriceA = a.discount ? calculateDiscount(a.price, a.discount) : a.price;
+    const actualPriceB = b.discount ? calculateDiscount(b.price, b.discount) : b.price;
+    return actualPriceB - actualPriceA;
+  });
+  showData(sortedData);
+});
+
+//PRIS "LOMMEREGNER"
+//Udregning af ny pris, som vist i undervisningen;
+const calculateDiscount = (price, discountPercent) => {
+  return (price * (100 - discountPercent)) / 100;
+};
+//Indsættes som ${calculateDiscount(product.price, product.discount)} i det tag ens nye pris skal stå.
 
 //VISNING AF DATA
 function showData(products) {
@@ -64,12 +100,6 @@ function showData(products) {
   let newInnerHTML = "";
 
   products.forEach((product) => {
-    //Udregning af ny pris, som vist i undervisningen;
-    const calculateDiscount = (price, discountPercent) => {
-      return (price * (100 - discountPercent)) / 100;
-    };
-    //Indsættes som ${calculateDiscount(product.price, product.discount)} i det tag ens nye pris skal stå.
-
     document.querySelector(".productheader").innerHTML = "Browse: <br>" + headertitle;
 
     newInnerHTML += `<a class="product ${product.soldout ? "soldout" : ""} ${product.discount ? "discount" : ""}" href="produkt.html?id=${product.id}">

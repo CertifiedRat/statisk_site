@@ -310,23 +310,48 @@ p.hero-p {
 
 .filter-and-sort {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-columns: auto fit-content;
+  gap: 0.5rem;
+  padding-inline: 1rem;
 }
-.filter-and-sort summary {
+.filter-and-sort select,
+.sale {
+  display: flex;
+  gap: 1rem;
   border: 1px solid var(--color-black900);
   padding: 0.25rem 0.5rem;
   border-radius: 5px;
-  width: fit-content;
+  height: fit-content;
   cursor: pointer;
 }
-summary::marker {
-  content: "\23F7";
-  /* \23F7 */
-  rotate: 90deg;
+.filter-and-sort select {
+  width: 130px;
 }
-
+.filter-and-sort select:open .name {
+  display: none;
+}
+.filter-and-sort ::picker(select) {
+  padding-block: 0.5rem;
+  width: 200px;
+}
+.filter-and-sort :checked {
+  background-color: var(--color-black800);
+  color: var(--color-white50);
+}
+.filter-and-sort ::checkmark {
+  display: none;
+}
+.inline-btn {
+  border: none;
+  padding: 0.5rem 1rem;
+}
 .filters {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 130px);
+  gap: 0.5rem;
+}
+.sorting {
+  place-self: end;
 }
 /******************** PRODUKT *******************************/
 .no-gap {
